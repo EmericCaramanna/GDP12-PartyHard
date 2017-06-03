@@ -43,12 +43,12 @@ public class PnjBehaviour : MonoBehaviour {
 
     void    Dj()
     {
-
+        //minijeu
     }
 
     void    Police()
     {
-
+        //minijeu
     }
 
     // Use this for initialization
@@ -75,15 +75,9 @@ public class PnjBehaviour : MonoBehaviour {
     void OnMouseDown()
     {
         _audioSource.Play();
-        if (_id == Role.videur)
-            Videur();
         if (_id == Role.barman)
             Barman();
         if (_id == Role.dealer)
             Dealer();
-        if (_id == Role.dj)
-            Dj();
-        if (_id == Role.policier)
-            Police();
     }
 }
