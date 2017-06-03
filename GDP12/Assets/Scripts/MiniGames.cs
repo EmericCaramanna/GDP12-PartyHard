@@ -4,13 +4,30 @@ using UnityEngine;
 
 public class MiniGames : MonoBehaviour {
 
-	public enum GameName{
-		Dance,
-		Drink,
-		Fight,
-		Cop,
-		Shifumi,
-		BeerPong
-	}
 
+
+    void Dance()
+    {
+        //
+    }
+
+    void Fight()
+    {
+        //
+    }
+
+    void Cop()
+    {
+        //
+    }
+
+    void Shifumi()
+    {
+        //
+    }
+
+    void BeerPong()
+    {
+        //
+    }
 }

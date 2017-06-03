@@ -4,39 +4,70 @@ using UnityEngine;
 
 public class MiniGamesManager : MonoBehaviour {
 
-	public GameObject dance;
+    public enum GameName
+    {
+        Dance,
+        Drink,
+        Fight,
+        Cop,
+        Shifumi,
+        BeerPong
+    }
+
+    public GameObject dance;
 	public GameObject drink;
 	public GameObject fight;
 	public GameObject cop;
 	public GameObject shifumi;
 	public GameObject beerPong;
+    
+    SpriteRenderer _square;
 
-	public void LaunchGame(MiniGames.GameName gameName)
+    float[] _timeCodeMinigame = { 150.0f, 225.0f };
+    int[] _idMiniGame = new int[2];
+
+    void    Start()
+    {
+        _idMiniGame[0] = (int)Random.Range(0, 5.0f);
+        while (_idMiniGame[0] == (_idMiniGame[1] = (int)Random.Range(0, 5.0f)));
+        _square = GetComponent<SpriteRenderer>();
+        _square.enabled = false;
+    }
+
+
+    public void LaunchGame(GameName gameName)
 	{
-		switch (gameName) {
-		case MiniGames.GameName.Dance : 
+        _square.enabled = true;
+        switch (gameName) {
+		case GameName.Dance : 
 			{
+                dance.SetActive(true);
 				break;
 			}
-		case MiniGames.GameName.Drink :
+		case GameName.Drink :
 			{
-				break;
+                 drink.SetActive(true);
+                 break;
 			}
-		case MiniGames.GameName.Fight :
+		case GameName.Fight :
 			{
-				break;
+                 fight.SetActive(true);
+                 break;
 			}
-		case MiniGames.GameName.Cop :
+		case GameName.Cop :
 			{
-				break;
+                cop.SetActive(true);
+                break;
 			}
-		case MiniGames.GameName.Shifumi :
+		case GameName.Shifumi :
 			{
-				break;
+                shifumi.SetActive(true);
+                break;
 			}
-		case MiniGames.GameName.BeerPong :
+		case GameName.BeerPong :
 			{
-				break;
+                beerPong.SetActive(true);
+                break;
 			}
 		}
 	}
