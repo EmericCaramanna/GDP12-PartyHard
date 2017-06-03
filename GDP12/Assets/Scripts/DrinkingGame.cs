@@ -29,7 +29,7 @@ public class DrinkingGame : MonoBehaviour {
 				RaycastHit2D hit = new RaycastHit2D ();
 				Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
 				hit = Physics2D.Raycast (ray.origin, ray.direction);
-				if (hit.transform.CompareTag ("Player")) {
+				if (hit.transform != null && hit.transform.CompareTag ("Player")) {
 					drinkingScore += 1;
 				}
 			}
