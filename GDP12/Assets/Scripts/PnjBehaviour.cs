@@ -36,7 +36,9 @@ public class PnjBehaviour : MonoBehaviour {
 
     void    Dealer()
     {
-
+        _ResourceManager.AddHealth(20);
+        _ResourceManager.AddAlcohol(20);
+        _ResourceManager.AddMoney(20);
     }
 
     void    Dj()
