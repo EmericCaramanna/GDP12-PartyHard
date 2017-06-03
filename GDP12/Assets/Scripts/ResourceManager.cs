@@ -9,6 +9,8 @@ public class ResourceManager : MonoBehaviour {
 	public float currentPercentAlcohol;
 	public float currentPercentHealth;
 	public Text moneyText;
+	public Slider healthSlider;
+	public Slider alcoholSlider;
 
 	public void AddAlcohol(float value)
 	{
@@ -43,11 +45,7 @@ public class ResourceManager : MonoBehaviour {
 	void Update()
 	{
 		moneyText.text = currentMoney + " $";
-		if (Input.GetButton ("Fire1")) {
-			AddMoney (1f);
-		}
-		if (Input.GetButton ("Fire2")) {
-			SubMoney (1f);
-		}
+		healthSlider.value = currentPercentHealth / 100;
+		alcoholSlider.value = currentPercentAlcohol / 100;
 	}
 }
