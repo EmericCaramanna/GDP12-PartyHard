@@ -11,9 +11,7 @@ public class PnjBehaviour : MonoBehaviour {
     {
         videur,
         barman,
-        dealer,
-        dj,
-        policier
+        dealer
     }
 
     public Role     _id;
@@ -75,6 +73,8 @@ public class PnjBehaviour : MonoBehaviour {
     void OnMouseDown()
     {
         _audioSource.Play();
+        if (_id == Role.videur)
+            Videur();
         if (_id == Role.barman)
             Barman();
         if (_id == Role.dealer)
