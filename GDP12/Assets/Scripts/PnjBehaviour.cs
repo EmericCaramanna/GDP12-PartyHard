@@ -37,11 +37,16 @@ public class PnjBehaviour : MonoBehaviour {
 
     }
 
-    void    Dealer()
+    void Dealer()
     {
-        _ResourceManager.AddHealth(20);
-        _ResourceManager.AddAlcohol(20);
-        _ResourceManager.AddMoney(20);
+        //FAIRE un isTrigger gameObject derler
+        if (goInTrigger.Contains(_playerReference))
+        {
+            _ResourceManager.AddHealth(20);
+            _ResourceManager.AddAlcohol(20);
+            _ResourceManager.AddMoney(20);
+        }
+  
     }
 
     void    Dj()

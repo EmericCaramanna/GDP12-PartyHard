@@ -37,6 +37,7 @@ public class DrinkingGame : MonoBehaviour {
 			if (drinkingScore > 30) {
 				resourceManager.AddMoney (50);
 				resourceManager.AddAlcohol (20);
+                GetComponentInParent<MiniGamesManager>().takeOffSquare();
 				gameObject.SetActive (false);
 			}
 		}

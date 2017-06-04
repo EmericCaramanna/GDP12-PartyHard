@@ -9,21 +9,31 @@ public class Osu : MonoBehaviour {
         UP,
         DOWN,
         RIGHT,
-        LEFT
+        LEFT,
+        SELECT
     }
 
     public idNote _id;
     Dance _refDance;
     bool _isActive;
 
+    public AudioSource son;
+
+    public void setPos(Vector3 nPos)
+    {
+        transform.position = nPos;
+    }
+
     public void setActivate(bool value)
     {
-        _isActive = value;
+        if (_id != idNote.SELECT) 
+            _isActive = value;
     }
 	// Use this for initialization
 	void Start () {
         _refDance = GetComponentInParent<Dance>();
         _isActive = false;
+        son = GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
