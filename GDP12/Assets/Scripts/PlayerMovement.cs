@@ -8,6 +8,8 @@ public class PlayerMovement : MonoBehaviour {
 	bool playingMiniGame = false;
 	Rigidbody2D rigibody;
 
+	public Vector2 diretion;
+
 	void Start()
 	{
 		rigibody = GetComponent<Rigidbody2D> ();
@@ -23,8 +25,9 @@ public class PlayerMovement : MonoBehaviour {
 		if (!playingMiniGame) {
 			if (Input.GetButton ("Fire1")) {
 				Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
-				Vector2 diretion = new Vector2(ray.origin.x - transform.position.x, ray.origin.y - transform.position.y);
+				diretion = new Vector2(ray.origin.x - transform.position.x, ray.origin.y - transform.position.y);
 				diretion.Normalize ();
+//				transform.Translate (diretion * speed);
 				if (rigibody) {
 					if (ray.origin != transform.position) {
 						rigibody.velocity = diretion * speed;
@@ -40,4 +43,8 @@ public class PlayerMovement : MonoBehaviour {
 		}
 	}
 
+	void OnCollisionEnter2D()
+	{
+		
+	}
 }
