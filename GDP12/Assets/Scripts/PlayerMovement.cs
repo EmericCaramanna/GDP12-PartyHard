@@ -27,7 +27,6 @@ public class PlayerMovement : MonoBehaviour {
 				Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
 				diretion = new Vector2(ray.origin.x - transform.position.x, ray.origin.y - transform.position.y);
 				diretion.Normalize ();
-//				transform.Translate (diretion * speed);
 				if (rigibody) {
 					if (ray.origin != transform.position) {
 						rigibody.velocity = diretion * speed;
