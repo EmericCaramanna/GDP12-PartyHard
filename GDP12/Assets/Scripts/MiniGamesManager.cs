@@ -14,6 +14,8 @@ public class MiniGamesManager : MonoBehaviour {
         BeerPong
     }
 
+    public PlayerMovement player;
+
     public GameObject dance;
 	public GameObject drink;
 	public GameObject fight;
@@ -42,32 +44,38 @@ public class MiniGamesManager : MonoBehaviour {
 		case GameName.Dance : 
 			{
                 dance.SetActive(true);
+                player.playingMiniGame = true;
 				break;
 			}
 		case GameName.Drink :
 			{
                  drink.SetActive(true);
-                 break;
+                    player.playingMiniGame = true;
+                    break;
 			}
 		case GameName.Fight :
 			{
                  fight.SetActive(true);
-                 break;
+                    player.playingMiniGame = true;
+                    break;
 			}
 		case GameName.Cop :
 			{
                 cop.SetActive(true);
-                break;
+                    player.playingMiniGame = true;
+                    break;
 			}
 		case GameName.Shifumi :
 			{
                 shifumi.SetActive(true);
-                break;
+                    player.playingMiniGame = true;
+                    break;
 			}
 		case GameName.BeerPong :
 			{
                 beerPong.SetActive(true);
-                break;
+                    player.playingMiniGame = true;
+                    break;
 			}
 		}
 	}

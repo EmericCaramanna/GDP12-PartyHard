@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour {
 
 	public float speed = 5f;
-	bool playingMiniGame = false;
+	public bool playingMiniGame = false;
 	Rigidbody2D rigibody;
 
 	public Vector2 diretion;
