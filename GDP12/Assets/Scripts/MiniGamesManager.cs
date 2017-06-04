@@ -25,7 +25,7 @@ public class MiniGamesManager : MonoBehaviour {
     
     SpriteRenderer _square;
 
-    float[] _timeCodeMinigame = { 150.0f, 225.0f };
+    public float[] _timeCodeMinigame = { 150.0f, 225.0f };
     int[] _idMiniGame = new int[2];
 
     void    Start()

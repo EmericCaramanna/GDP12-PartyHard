@@ -16,8 +16,6 @@ public class PnjBehaviour : MonoBehaviour {
 
     public Role     _id;
     AudioSource     _audioSource;
-    BoxCollider2D   _boxCollider2D;
-    SpriteRenderer  _sprite;
 
     // Function of Special Pnj
     void    Videur()
@@ -54,14 +52,6 @@ public class PnjBehaviour : MonoBehaviour {
         if (_audioSource = GetComponent<AudioSource>())
         {
            //
-        }
-        if (_boxCollider2D = GetComponent<BoxCollider2D>())
-        {
-            //
-        }
-        if (_sprite = GetComponent<SpriteRenderer>())
-        {
-            //
         }
     }
 
