@@ -28,7 +28,6 @@ public class PlayerMovement : MonoBehaviour {
 				if (rigibody) {
 					if (ray.origin != transform.position) {
 						rigibody.velocity = diretion * speed;
-						transform.up = rigibody.velocity;
 					} else
 						rigibody.velocity = Vector2.zero;
 				}
