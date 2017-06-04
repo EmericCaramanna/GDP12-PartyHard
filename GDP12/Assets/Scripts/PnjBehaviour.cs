@@ -18,6 +18,7 @@ public class PnjBehaviour : MonoBehaviour {
     AudioSource     _audioSource;
     BoxCollider2D   _boxCollider2D;
     SpriteRenderer  _sprite;
+	List<GameObject> goInTrigger = new List<GameObject>();
 
     // Function of Special Pnj
     void    Videur()
@@ -27,8 +28,10 @@ public class PnjBehaviour : MonoBehaviour {
 
     void    Barman()
     {
-        _ResourceManager.AddAlcohol(20);
-        _ResourceManager.AddMoney(-10);
+		if (goInTrigger.Contains (_playerReference)) {
+			_ResourceManager.AddAlcohol(20);
+			_ResourceManager.SubMoney(10);
+		}
 
     }
 
@@ -69,6 +72,16 @@ public class PnjBehaviour : MonoBehaviour {
     void Update() {
 
     }
+
+	void OnTriggerEnter2D(Collider2D other)
+	{
+		goInTrigger.Add (other.gameObject);
+	}
+
+	void OnTriggerExit2D(Collider2D other)
+	{
+		goInTrigger.Remove (other.gameObject);
+	}
 
     void OnMouseDown()
     {
