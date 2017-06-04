@@ -39,7 +39,7 @@ public class Shifumi : MonoBehaviour {
         if (!play && _signPlayer != -1)
         {
             play = true;
-            int signIA = (int)Random.Range(0f, 2.0f);
+            int signIA = (int)Random.Range(0f, 3.0f);
             if (_signPlayer == (int)Symboru.pierre)
             {
                 if (signIA == (int)Symboru.pierre)
