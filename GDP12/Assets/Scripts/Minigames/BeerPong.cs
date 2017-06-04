@@ -54,7 +54,8 @@ public class BeerPong : MonoBehaviour {
 			} else
 				fill.color = Color.red;
 		} else {
-			strength.gameObject.SetActive(false);
+            GetComponentInParent<MiniGamesManager>().takeOffSquare();
+            strength.gameObject.SetActive(false);
 			gameObject.SetActive(false);
 		}
 	}

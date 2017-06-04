@@ -21,7 +21,9 @@ public class Shifumi : MonoBehaviour {
     bool play;
     public int _signPlayer;
     resultGame ah;
-    
+
+    public ResourceManager _refResourceManager;
+
     void OnEnable ()
     {
         play = false;
@@ -74,9 +76,19 @@ public class Shifumi : MonoBehaviour {
                 Debug.Log("again");
             }
             else if (ah == resultGame.win)
-                Debug.Log("win");
+            {
+                _refResourceManager.AddMoney(38);
+                _refResourceManager.AddHealth(-10);
+                gameObject.SetActive(false);
+            }
             else if (ah == resultGame.lose)
-                Debug.Log("lose");
+            {
+                _refResourceManager.AddMoney(-38);
+                _refResourceManager.AddHealth(-10);
+                GetComponentInParent<MiniGamesManager>().takeOffSquare();
+                gameObject.SetActive(false);
+            }
+
         }
        
     }
