@@ -7,7 +7,8 @@ public class PlayerMovement : MonoBehaviour {
 	public float speed = 5f;
 	public bool playingMiniGame = false;
 	Rigidbody2D rigibody;
-
+	public bool idle = true;
+	public PlayerAnimation anim;
 	public Vector2 diretion;
 
 	void Start()
@@ -32,18 +33,27 @@ public class PlayerMovement : MonoBehaviour {
 						rigibody.velocity = diretion * speed;
 					} else
 						rigibody.velocity = Vector2.zero;
+					if (diretion.x >= 0.5) {
+						anim.AnimRight ();
+					}
+					if (diretion.x <= -0.5) {
+						anim.AnimLeft ();
+					}
+					if (diretion.y >= 0.5) {
+						anim.AnimTop();
+					}
+					if (diretion.y <= -0.5) {
+						anim.AnimDown ();
+					}
 				}
 			}
 			if (Input.GetButtonUp("Fire1")) {
 				if (rigibody) {
 					rigibody.velocity = Vector2.zero;
+					diretion = Vector2.zero;
+					anim.AnimIdle ();
 				}
 			}
 		}
-	}
-
-	void OnCollisionEnter2D()
-	{
-		
 	}
 }

@@ -16,6 +16,21 @@ public class ResourceManager : MonoBehaviour {
 	float previousAlcoholDecrease = 0f;
 	float previousHealthDecrease = 0f;
 	public float decreaseSpeed = 1;
+	public bool isPlaying;
+
+	void Start()
+	{
+		currentMoney = 400;
+		currentPercentAlcohol = 50;
+		currentPercentHealth = 100;
+	}
+
+	void OnEnable()
+	{
+		currentMoney = 400;
+		currentPercentAlcohol = 50;
+		currentPercentHealth = 100;
+	}
 
 	public void AddAlcohol(float value)
 	{
@@ -49,16 +64,18 @@ public class ResourceManager : MonoBehaviour {
 
 	void Update()
 	{
-		moneyText.text = currentMoney + " $";
-		if (Time.time > alcoholDecreaseRate + previousAlcoholDecrease) {
-			previousAlcoholDecrease = Time.time;
-			SubAlcohol (decreaseSpeed);
+		if (isPlaying) {
+			moneyText.text = currentMoney + " $";
+			if (Time.time > alcoholDecreaseRate + previousAlcoholDecrease) {
+				previousAlcoholDecrease = Time.time;
+				SubAlcohol (decreaseSpeed);
+			}
+			if (Time.time > healthDecreaseRate + previousHealthDecrease) {
+				previousHealthDecrease = Time.time;
+				SubHealth (decreaseSpeed);
+			}
+			healthSlider.value = currentPercentHealth / 100;
+			alcoholSlider.value = currentPercentAlcohol / 100;
 		}
-		if (Time.time > healthDecreaseRate + previousHealthDecrease) {
-			previousHealthDecrease = Time.time;
-			SubHealth (decreaseSpeed);
-		}
-		healthSlider.value = currentPercentHealth / 100;
-		alcoholSlider.value = currentPercentAlcohol / 100;
 	}
 }

@@ -7,18 +7,22 @@ public class Lights : MonoBehaviour {
 	public float winkFrequency;
 	float lastWink = 0f;
 
-	SpriteRenderer sprite;
+	SpriteRenderer spriteRenderer;
+	public Sprite[] sprites;
+	int lightIndex;
 
 	// Use this for initialization
 	void Start () {
-		sprite = GetComponent<SpriteRenderer> ();
+		spriteRenderer = GetComponent<SpriteRenderer> ();
+		lightIndex = 0;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (Time.time > winkFrequency + lastWink) {
 			lastWink = Time.time;
-			sprite.enabled = !sprite.enabled;
+			spriteRenderer.sprite = sprites [lightIndex];
+			lightIndex = (lightIndex + 1 == 3) ? 0 : lightIndex + 1;
 		}
 		
 	}

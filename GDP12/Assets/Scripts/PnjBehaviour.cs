@@ -18,6 +18,7 @@ public class PnjBehaviour : MonoBehaviour {
     AudioSource     _audioSource;
     BoxCollider2D   _boxCollider2D;
     SpriteRenderer  _sprite;
+	public PlayerAnimation anim;
 	List<GameObject> goInTrigger = new List<GameObject>();
 
     // Function of Special Pnj
@@ -31,6 +32,7 @@ public class PnjBehaviour : MonoBehaviour {
 		if (goInTrigger.Contains (_playerReference)) {
 			_ResourceManager.AddAlcohol(20);
 			_ResourceManager.SubMoney(10);
+			anim.AnimDrink ();
 		}
 
     }
