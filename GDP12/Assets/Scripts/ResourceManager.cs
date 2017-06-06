@@ -5,16 +5,23 @@ using UnityEngine.UI;
 
 public class ResourceManager : MonoBehaviour {
 
+	[HideInInspector]
 	public float currentMoney;
+	[HideInInspector]
 	public float currentPercentAlcohol;
+	[HideInInspector]
 	public float currentPercentHealth;
+
 	public Text moneyText;
 	public Slider healthSlider;
 	public Slider alcoholSlider;
+
 	public float alcoholDecreaseRate;
 	public float healthDecreaseRate;
+
 	float previousAlcoholDecrease = 0f;
 	float previousHealthDecrease = 0f;
+
 	public float decreaseSpeed = 1;
 	public bool isPlaying;
 

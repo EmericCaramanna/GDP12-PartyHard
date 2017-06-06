@@ -32,6 +32,7 @@ public class PnjBehaviour : MonoBehaviour {
 		if (goInTrigger.Contains (_playerReference)) {
 			_ResourceManager.AddAlcohol(20);
 			_ResourceManager.SubMoney(10);
+			_playerReference.GetComponent<PlayerMovement> ().BlockMovement (1);
 			anim.AnimDrink ();
 		}
 

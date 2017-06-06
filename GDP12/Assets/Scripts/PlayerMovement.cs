@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour {
 	public bool idle = true;
 	public PlayerAnimation anim;
 	public Vector2 diretion;
+	public float duration;
+	public float startTime;
 
 	void Start()
 	{
@@ -23,7 +25,7 @@ public class PlayerMovement : MonoBehaviour {
 
 	void ManageInput()
 	{
-		if (!playingMiniGame) {
+		if (!playingMiniGame && CanMove()) {
 			if (Input.GetButton ("Fire1")) {
 				Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
 				diretion = new Vector2(ray.origin.x - transform.position.x, ray.origin.y - transform.position.y);
@@ -47,7 +49,7 @@ public class PlayerMovement : MonoBehaviour {
 					}
 				}
 			}
-			if (Input.GetButtonUp("Fire1")) {
+			if (Input.GetButtonUp("Fire1") || rigibody.velocity == Vector2.zero) {
 				if (rigibody) {
 					rigibody.velocity = Vector2.zero;
 					diretion = Vector2.zero;
@@ -55,5 +57,18 @@ public class PlayerMovement : MonoBehaviour {
 				}
 			}
 		}
+	}
+
+	public void BlockMovement(float duration)
+	{
+		startTime = Time.time;
+		this.duration = duration;
+		rigibody.velocity = Vector2.zero;
+		diretion = Vector2.zero;
+	}
+
+	bool CanMove()
+	{
+		return Time.time > startTime + duration;
 	}
 }

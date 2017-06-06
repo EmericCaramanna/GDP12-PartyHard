@@ -9,6 +9,7 @@ public class DrinkingGame : MonoBehaviour {
 	bool drinkingPlaying;
 
 	public ResourceManager resourceManager;
+	public PlayerMovement player;
 
 	void OnEnable()
 	{
@@ -35,6 +36,7 @@ public class DrinkingGame : MonoBehaviour {
 			}
 		} else {
 			if (drinkingScore > 30) {
+				player.playingMiniGame = false;
 				resourceManager.AddMoney (50);
 				resourceManager.AddAlcohol (20);
                 GetComponentInParent<MiniGamesManager>().takeOffSquare();

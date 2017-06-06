@@ -14,6 +14,7 @@ public class BeerPong : MonoBehaviour {
 	RaycastHit2D hit;
 	int numberOfThrowLeft;
 	public ResourceManager resourceManager;
+	public PlayerMovement player;
 
 	void OnEnable()
 	{
@@ -54,6 +55,7 @@ public class BeerPong : MonoBehaviour {
 			} else
 				fill.color = Color.red;
 		} else {
+			player.playingMiniGame = false;
             GetComponentInParent<MiniGamesManager>().takeOffSquare();
             strength.gameObject.SetActive(false);
 			gameObject.SetActive(false);

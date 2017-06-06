@@ -37,8 +37,8 @@ public class MiniGamesManager : MonoBehaviour {
         while (_idMiniGame[0] == (_idMiniGame[1] = (int)Random.Range(0, 4.0f)));
         _square = GetComponent<SpriteRenderer>();
         _square.enabled = false;
-        _timerGame1 = 2.0f;
-        _timerGame2 = 33.0f;
+        _timerGame1 = -1.0f;
+        _timerGame2 = -1.0f;
     }
 
     public void takeOffSquare()
@@ -49,7 +49,23 @@ public class MiniGamesManager : MonoBehaviour {
     void    Update()
     {
         _clock += Time.deltaTime;
-        if (_timerGame1 <= _clock && _timerGame1 != -1)
+		if (Input.GetKey ("t")) {
+			dance.SetActive (true);
+			player.playingMiniGame = true;
+		}
+		if (Input.GetKey ("y")) {
+			shifumi.SetActive (true);
+			player.playingMiniGame = true;
+		}
+		if (Input.GetKey ("b")) {
+			beerPong.SetActive (true);
+			player.playingMiniGame = true;
+		}
+		if (Input.GetKey ("g")) {
+			drink.SetActive (true);
+			player.playingMiniGame = true;
+		}
+		if (_timerGame1 <= _clock && _timerGame1 != -1)
         {
             LaunchGame((GameName)_idMiniGame[0]);
             _timerGame1 = -1;

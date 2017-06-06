@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour {
 
 	void Update()
 	{
+		/*
 		if (resourceManager.isPlaying) {
 			timeLeft -= Time.deltaTime;
 			if (timeLeft <= 0f) {
@@ -50,7 +51,7 @@ public class GameManager : MonoBehaviour {
 					endMessage.text = "you were too tired";
 				}
 			}
-		}
+		}*/
 	}
 
 }
