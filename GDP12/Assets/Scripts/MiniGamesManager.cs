@@ -6,12 +6,13 @@ public class MiniGamesManager : MonoBehaviour {
 
     public enum GameName
     {
-        Dance,
-        Drink,
+        Dance = 0,
+		Drink = 1,  
+		Shifumi = 2,
+		BeerPong = 3
         //Fight,
         //Cop,
-        Shifumi,
-        BeerPong
+
     }
 
     public PlayerMovement player;
@@ -65,16 +66,16 @@ public class MiniGamesManager : MonoBehaviour {
 			drink.SetActive (true);
 			player.playingMiniGame = true;
 		}
-		if (_timerGame1 <= _clock && _timerGame1 != -1)
-        {
-            LaunchGame((GameName)_idMiniGame[0]);
-            _timerGame1 = -1;
-        }
-        if (_timerGame2 <= _clock && _timerGame2 != -1)
-        {
-            LaunchGame((GameName)_idMiniGame[1]);
-            _timerGame2 = -1;
-        }
+//		if (_timerGame1 <= _clock && _timerGame1 != -1)
+//        {
+//            LaunchGame((GameName)_idMiniGame[0]);
+//            _timerGame1 = -1;
+//        }
+//        if (_timerGame2 <= _clock && _timerGame2 != -1)
+//        {
+//            LaunchGame((GameName)_idMiniGame[1]);
+//            _timerGame2 = -1;
+//        }
     }
 
     public void LaunchGame(GameName gameName)
@@ -85,6 +86,7 @@ public class MiniGamesManager : MonoBehaviour {
 			{
                 dance.SetActive(true);
                 player.playingMiniGame = true;
+				Debug.Log ("Dance");
 				break;
 			}
 		case GameName.Drink :
@@ -114,8 +116,8 @@ public class MiniGamesManager : MonoBehaviour {
 		case GameName.BeerPong :
 			{
                 beerPong.SetActive(true);
-                    player.playingMiniGame = true;
-                    break;
+                player.playingMiniGame = true;
+                break;
 			}
 		}
 	}

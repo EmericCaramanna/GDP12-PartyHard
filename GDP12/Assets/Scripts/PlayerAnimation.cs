@@ -7,7 +7,6 @@ public class PlayerAnimation : MonoBehaviour {
 	Animator animator;
 	PlayerMovement playerMovement;
 	Vector3 scale;
-	public bool drink = false;
 
 	// Use this for initialization
 	void Start () {
@@ -16,26 +15,6 @@ public class PlayerAnimation : MonoBehaviour {
 		scale = transform.localScale;
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		if (playerMovement.diretion.x >= 0.5) {
-
-		}
-		if (playerMovement.diretion.x <= -0.5) {
-
-		}
-		if (playerMovement.diretion.y >= 0.5) {
-
-		}
-		if (playerMovement.diretion.y <= -0.5) {
-		}
-		if (drink) {
-			drink = false;
-		}
-		if (playerMovement.idle) {
-		}
-	}
-
 	public void AnimRight()
 	{
 		scale.x = 2;

@@ -10,10 +10,12 @@ public class DrinkingGame : MonoBehaviour {
 
 	public ResourceManager resourceManager;
 	public PlayerMovement player;
+	public GameObject gameVisual;
+	public GameObject frameBoard;
 
 	void OnEnable()
 	{
-		drinkingTimeLeft = 10f;
+		drinkingTimeLeft = 5f;
 	}
 
 	void Update()
@@ -30,18 +32,23 @@ public class DrinkingGame : MonoBehaviour {
 				RaycastHit2D hit = new RaycastHit2D ();
 				Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
 				hit = Physics2D.Raycast (ray.origin, ray.direction);
-				if (hit.transform != null && hit.transform.CompareTag ("Player")) {
+				if (hit.transform != null && hit.transform.CompareTag ("MiniGame")) {
 					drinkingScore += 1;
+					gameVisual.GetComponent<Animator> ().SetInteger ("Trigger", 0);
 				}
 			}
 		} else {
-			if (drinkingScore > 30) {
-				player.playingMiniGame = false;
+			if (drinkingScore > 10) {
 				resourceManager.AddMoney (50);
 				resourceManager.AddAlcohol (20);
-                GetComponentInParent<MiniGamesManager>().takeOffSquare();
-				gameObject.SetActive (false);
 			}
+			drinkingTimeLeft = 5f;
+			drinkingScore = 0;
+			player.playingMiniGame = false;
+			GetComponentInParent<MiniGamesManager>().takeOffSquare();
+			frameBoard.SetActive (false);
+			gameVisual.SetActive (false);
+			gameObject.SetActive (false);
 		}
 	}
 }
