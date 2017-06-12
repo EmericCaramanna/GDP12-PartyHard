@@ -13,6 +13,8 @@ public class Dance : MonoBehaviour {
     int _idNote;
     Osu[] _note;
 
+    public GameObject _frameBoard;
+    public PlayerMovement _refPlayer;
     public ResourceManager _refResourceManager;
 
     public int     getScore()
@@ -32,7 +34,7 @@ public class Dance : MonoBehaviour {
 
     void OnEnable ()
     {
-        _timeLeft = 30.0f;
+        _timeLeft = 10.0f;
         _scorePlayer = 0;
         _timerNextNote = 1.0f;
         _note = GetComponentsInChildren<Osu>();
@@ -67,7 +69,9 @@ public class Dance : MonoBehaviour {
             _refResourceManager.AddMoney(_scorePlayer);
             _refResourceManager.AddHealth(-20);
             GetComponentInParent<MiniGamesManager>().takeOffSquare();
+            _refPlayer.playingMiniGame = false;
             gameObject.SetActive(false);
+            _frameBoard.SetActive(false);
         }
 	}
 }
