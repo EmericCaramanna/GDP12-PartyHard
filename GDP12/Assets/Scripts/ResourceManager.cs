@@ -18,12 +18,14 @@ public class ResourceManager : MonoBehaviour {
 
 	public float alcoholDecreaseRate;
 	public float healthDecreaseRate;
+	public float healthRegenRate;
 
 	float previousAlcoholDecrease = 0f;
 	float previousHealthDecrease = 0f;
 
 	public float decreaseSpeed = 1;
 	public bool isPlaying;
+	public bool isRegen = false;
 
 	void Start()
 	{
@@ -77,9 +79,13 @@ public class ResourceManager : MonoBehaviour {
 				previousAlcoholDecrease = Time.time;
 				SubAlcohol (decreaseSpeed);
 			}
-			if (Time.time > healthDecreaseRate + previousHealthDecrease) {
+			if (!isRegen && Time.time > healthDecreaseRate + previousHealthDecrease) {
 				previousHealthDecrease = Time.time;
 				SubHealth (decreaseSpeed);
+			}
+			if (isRegen && Time.time > healthRegenRate + previousHealthDecrease) {
+				previousHealthDecrease = Time.time;
+				AddHealth (decreaseSpeed);
 			}
 			healthSlider.value = currentPercentHealth / 100;
 			alcoholSlider.value = currentPercentAlcohol / 100;

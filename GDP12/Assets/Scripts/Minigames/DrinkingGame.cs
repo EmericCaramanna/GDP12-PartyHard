@@ -42,6 +42,7 @@ public class DrinkingGame : MonoBehaviour {
 				resourceManager.AddMoney (50);
 				resourceManager.AddAlcohol (20);
 			}
+			resourceManager.AddAlcohol (20);
 			drinkingTimeLeft = 5f;
 			drinkingScore = 0;
 			player.playingMiniGame = false;
