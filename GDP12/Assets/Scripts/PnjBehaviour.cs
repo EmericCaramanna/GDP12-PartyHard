@@ -16,8 +16,8 @@ public class PnjBehaviour : MonoBehaviour {
 
     public Role     _id;
     AudioSource     _audioSource;
-    BoxCollider2D   _boxCollider2D;
-    SpriteRenderer  _sprite;
+//    BoxCollider2D   _boxCollider2D;
+//    SpriteRenderer  _sprite;
 	public PlayerAnimation anim;
 	List<GameObject> goInTrigger = new List<GameObject>();
 
@@ -66,14 +66,14 @@ public class PnjBehaviour : MonoBehaviour {
         {
            //
         }
-        if (_boxCollider2D = GetComponent<BoxCollider2D>())
-        {
-            //
-        }
-        if (_sprite = GetComponent<SpriteRenderer>())
-        {
-            //
-        }
+//        if (_boxCollider2D = GetComponent<BoxCollider2D>())
+//        {
+//            //
+//        }
+//        if (_sprite = GetComponent<SpriteRenderer>())
+//        {
+//            //
+//        }
     }
 
     // Update is called once per frame

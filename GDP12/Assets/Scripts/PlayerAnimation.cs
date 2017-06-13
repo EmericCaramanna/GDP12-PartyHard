@@ -5,13 +5,11 @@ using UnityEngine;
 public class PlayerAnimation : MonoBehaviour {
 
 	Animator animator;
-	PlayerMovement playerMovement;
 	Vector3 scale;
 
 	// Use this for initialization
 	void Start () {
 		animator = GetComponent<Animator> ();
-		playerMovement = GetComponent<PlayerMovement> ();
 		scale = transform.localScale;
 	}
 	

@@ -29,8 +29,8 @@ public class MiniGamesManager : MonoBehaviour {
     public float[] _timeCodeMinigame = { 150.0f, 225.0f };
     int[] _idMiniGame = new int[2];
     float _clock;
-    float _timerGame1;
-    float _timerGame2;
+//    float _timerGame1;
+//    float _timerGame2;
 
     void    Start()
     {
@@ -38,8 +38,8 @@ public class MiniGamesManager : MonoBehaviour {
         while (_idMiniGame[0] == (_idMiniGame[1] = (int)Random.Range(0, 4.0f)));
         _square = GetComponent<SpriteRenderer>();
         _square.enabled = false;
-        _timerGame1 = -1.0f;
-        _timerGame2 = -1.0f;
+//        _timerGame1 = -1.0f;
+//        _timerGame2 = -1.0f;
     }
 
     public void takeOffSquare()

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class MiniGameDisplay : MonoBehaviour {
 
-	public MiniGamesManager.GameName name;
 	[SerializeField]
 	GameObject[] miniGamesVisual;
 
@@ -13,6 +12,5 @@ public class MiniGameDisplay : MonoBehaviour {
 		for (int i = 0; i < miniGamesVisual.Length; i++) {
 			miniGamesVisual [i].SetActive (false);
 		}
-//		miniGamesVisual [(int)name].SetActive (true);
 	}
 }
